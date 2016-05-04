@@ -15,6 +15,16 @@ This [Yeoman](http://yeoman.io/) generator provides a basic scaffold for JavaScr
 
 It'll `npm install` some stuff (including `jsdom` and `mocha-jsdom` if you're writing a browser-based lab) to boot.
 
+## Installation
+
+This is an early release, so it hasn't been published anywhere yet (and probably shouldn't be until it has, you know, some tests). Assuming you have [Yeoman](http://yeoman.io/learning/index.html) installed, simply run
+
+```
+npm install -g pletcher/generator-learn
+```
+
+Then you can run `yo learn` whenever you need to generate a lab.
+
 ## LICENSE
 
 The MIT License (MIT)
