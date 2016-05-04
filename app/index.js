@@ -47,6 +47,7 @@ module.exports = generators.Base.extend({
       type: 'list',
     }]).then(answers => {
       this.options = answers
+      this.options.browser = answers.environment !== 'server'
       this.options.kebabCaseName = kebabCase(answers.labName)
     })
   },
@@ -62,12 +63,15 @@ module.exports = generators.Base.extend({
     this.template('.gitignore.sample', `${root}/.gitignore`)
     this.template('.learn', `${root}/.learn`)
     this.template('CONTRIBUTING.md', `${root}/CONTRIBUTING.md`)
+    this.template('LICENSE.md', `${root}/LICENSE.md`)
     this.template('README.md', `${root}/README.md`)
+    this.template('index.js', `${root}/index.js`)
     this.template('package.json', `${root}/package.json`)
+    this.template('test/index-test.js', `${root}/test/index-test.js`)
   },
 
   install: function() {
-    if (this.options.environment !== "server") {
+    if (this.options.browser) {
       return this.npmInstall(dependencies.concat(browserDependencies), { saveDev: true })
     }
 
