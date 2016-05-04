@@ -1,0 +1,24 @@
+{
+  "name": "<%= options.kebabCaseName %>",
+  "version": "0.1.0",
+  "description": "<%= options.description %>",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R mocha-multi --reporter-options nyan=-,json=.results.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/learn-co-curriculum/<%= options.kebabCaseName %>.git"
+  },
+  "keywords": [
+    "javascript",
+    "flatiron",
+    "learn"
+  ],
+  "author": "<%= options.username %>",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/learn-co-curriculum/<%= options.kebabCaseName %>/issues"
+  },
+  "homepage": "https://github.com/learn-co-curriculum/<%= options.kebabCaseName %>#readme"
+}

@@ -1,0 +1,37 @@
+{
+  "name": "generator-learn",
+  "version": "0.1.0",
+  "description": "A Yeoman generator for initializing Learn.co labs for browser- and server-based JavaScript",
+  "files": [
+    "app"
+  ],
+  "main": "app/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/pletcher/generator-learn.git"
+  },
+  "keywords": [
+    "learn.co",
+    "flatiron",
+    "javascript"
+  ],
+  "author": "@pletcher",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pletcher/generator-learn/issues"
+  },
+  "homepage": "https://github.com/pletcher/generator-learn#readme",
+  "dependencies": {
+    "lodash.kebabcase": "^4.0.1",
+    "yeoman-generator": "^0.23.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "jsdom": "^8.5.0",
+    "mocha": "^2.4.5",
+    "mocha-jsdom": "^1.1.0"
+  }
+}
