@@ -53,26 +53,33 @@ module.exports = generators.Base.extend({
   },
 
   configuring: function() {
-    this.root = `${this.destinationRoot()}/${this.options.kebabCaseName}`
+    const cwd = process.cwd()
+    const dirs = cwd.split('/')
+    const dirName = dirs[dirs.length - 1]
+    const rootDir = dirName === this.options.kebabCaseName ?
+            '' : `/${this.options.kebabCaseName}`
+    const root = `${this.destinationRoot()}${rootDir}`
+
+    this.destinationRoot(root)
   },
 
   writing: function() {
-    this.template('.editorconfig.sample', `${this.root}/.editorconfig`)
-    this.template('.gitignore.sample', `${this.root}/.gitignore`)
-    this.template('.learn', `${this.root}/.learn`)
-    this.template('CONTRIBUTING.md', `${this.root}/CONTRIBUTING.md`)
-    this.template('LICENSE.md', `${this.root}/LICENSE.md`)
-    this.template('README.md', `${this.root}/README.md`)
-    this.template('index.js', `${this.root}/index.js`)
-    this.template('package.json', `${this.root}/package.json`)
-    this.template('test/index-test.js', `${this.root}/test/index-test.js`)
+    this.template('.editorconfig.sample', '.editorconfig')
+    this.template('.gitignore.sample', '.gitignore')
+    this.template('.learn', '.learn')
+    this.template('CONTRIBUTING.md', 'CONTRIBUTING.md')
+    this.template('LICENSE.md', 'LICENSE.md')
+    this.template('README.md', 'README.md')
+    this.template('index.js', 'index.js')
+    this.template('package.json', 'package.json')
+    this.template('test/index-test.js', 'test/index-test.js')
   },
 
   install: function() {
     if (this.options.browser) {
-      return this.npmInstall(dependencies.concat(browserDependencies), { saveDev: true })
+      this.npmInstall(dependencies.concat(browserDependencies), { saveDev: true })
+    } else {
+      this.npmInstall(dependencies, { saveDev: true })
     }
-
-    this.npmInstall(dependencies, { saveDev: true })
   }
 })

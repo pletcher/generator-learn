@@ -27,11 +27,5 @@
   "dependencies": {
     "lodash.kebabcase": "^4.0.1",
     "yeoman-generator": "^0.23.3"
-  },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "jsdom": "^8.5.0",
-    "mocha": "^2.4.5",
-    "mocha-jsdom": "^1.1.0"
   }
 }
