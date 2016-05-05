@@ -52,22 +52,20 @@ module.exports = generators.Base.extend({
     })
   },
 
-  writing: function() {
-    const cwd = process.cwd()
-    const dirs = cwd.split('/')
-    const dirName = dirs[dirs.length - 1]
-    const root = dirName === this.options.kebabCaseName ?
-            '' : this.options.kebabCaseName
+  configuring: function() {
+    this.root = `${this.destinationRoot()}/${this.options.kebabCaseName}`
+  },
 
-    this.template('.editorconfig.sample', `${root}/.editorconfig`)
-    this.template('.gitignore.sample', `${root}/.gitignore`)
-    this.template('.learn', `${root}/.learn`)
-    this.template('CONTRIBUTING.md', `${root}/CONTRIBUTING.md`)
-    this.template('LICENSE.md', `${root}/LICENSE.md`)
-    this.template('README.md', `${root}/README.md`)
-    this.template('index.js', `${root}/index.js`)
-    this.template('package.json', `${root}/package.json`)
-    this.template('test/index-test.js', `${root}/test/index-test.js`)
+  writing: function() {
+    this.template('.editorconfig.sample', `${this.root}/.editorconfig`)
+    this.template('.gitignore.sample', `${this.root}/.gitignore`)
+    this.template('.learn', `${this.root}/.learn`)
+    this.template('CONTRIBUTING.md', `${this.root}/CONTRIBUTING.md`)
+    this.template('LICENSE.md', `${this.root}/LICENSE.md`)
+    this.template('README.md', `${this.root}/README.md`)
+    this.template('index.js', `${this.root}/index.js`)
+    this.template('package.json', `${this.root}/package.json`)
+    this.template('test/index-test.js', `${this.root}/test/index-test.js`)
   },
 
   install: function() {
