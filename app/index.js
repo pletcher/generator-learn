@@ -11,7 +11,8 @@ const browserDependencies = [
 
 const dependencies = [
   'chai',
-  'mocha'
+  'mocha',
+  'mocha-multi'
 ]
 
 module.exports = generators.Base.extend({
