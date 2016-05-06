@@ -2,6 +2,10 @@
   "name": "generator-learn",
   "version": "0.1.0",
   "description": "A Yeoman generator for initializing Learn.co labs for browser- and server-based JavaScript",
+  "engines": {
+    "node": "6.x",
+    "npm": "3.x"
+  },
   "files": [
     "app"
   ],
