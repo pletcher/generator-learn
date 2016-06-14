@@ -1,4 +1,4 @@
-const expect = require('chai').expect
+const expect = require('expect')
 <% if (options.browser) { %>
 const fs = require('fs')
 const jsdom = require('mocha-jsdom')
