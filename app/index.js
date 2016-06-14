@@ -10,7 +10,7 @@ const browserDependencies = [
 ]
 
 const dependencies = [
-  'chai',
+  'expect',
   'mocha',
   'mocha-multi'
 ]
