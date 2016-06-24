@@ -74,6 +74,10 @@ module.exports = generators.Base.extend({
     this.template('index.js', 'index.js')
     this.template('package.json', 'package.json')
     this.template('test/index-test.js', 'test/index-test.js')
+
+    if (this.options.browser) {
+      this.template('index.html', 'index.html')
+    }
   },
 
   install: function() {
