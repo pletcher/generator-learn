@@ -1,5 +1,4 @@
-<%= options.labName %>
----
+# <%= options.labName %>
 
 ## Objectives
 
