@@ -6,7 +6,6 @@ const kebabCase = require('lodash.kebabcase')
 
 const browserDependencies = [
   'jsdom',
-  'mocha-jsdom'
 ]
 
 const dependencies = [
