@@ -12,7 +12,8 @@ const browserDependencies = [
 const dependencies = [
   'expect',
   'mocha',
-  'mocha-multi'
+  'mocha-multi',
+  'node-inspector'
 ]
 
 module.exports = generators.Base.extend({
@@ -27,12 +28,12 @@ module.exports = generators.Base.extend({
       name: 'username',
       message: 'What is your name?',
       type: 'input',
-      default: childProcess.execSync('whoami').toString().trim()
+      default: "The Flatiron School"
     }, {
       name: 'labName',
       message: "What is this lab's name?",
       type: 'input',
-      default: this.labName || 'My Awesome Lab',
+      default: this.labName || 'My Awesome Lab'
     }, {
       name: 'description',
       message: "What's a one-line description for the lab?",
@@ -45,7 +46,7 @@ module.exports = generators.Base.extend({
       ],
       name: 'environment',
       message: "Will this project run in the browser, on the server, or in both environments?",
-      type: 'list',
+      type: 'list'
     }]).then(answers => {
       this.options = answers
       this.options.browser = answers.environment !== 'server'
@@ -73,7 +74,9 @@ module.exports = generators.Base.extend({
     this.template('README.md', 'README.md')
     this.template('index.js', 'index.js')
     this.template('package.json', 'package.json')
+    this.template('bin/debug-ide', 'bin/debug-ide')
     this.template('test/index-test.js', 'test/index-test.js')
+    this.template('test/mocha.opts', 'test/mocha.opts')
 
     if (this.options.browser) {
       this.template('index.html', 'index.html')
