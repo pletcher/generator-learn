@@ -76,9 +76,13 @@ module.exports = generators.Base.extend({
     this.template('bin/debug-ide', 'bin/debug-ide')
     this.template('test/index-test.js', 'test/index-test.js')
     this.template('test/mocha.opts', 'test/mocha.opts')
+    this.template('test/root.js', 'test/root.js')
 
     if (this.options.browser) {
       this.template('index.html', 'index.html')
+      this.template('test/index-test.html', 'test/index-test.html')
+      this.template('test/mocha.css', 'test/mocha.css')
+      this.template('test/mocha.js', 'test/mocha.js')
     }
   },
 
