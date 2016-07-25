@@ -5,7 +5,9 @@ const generators = require('yeoman-generator')
 const kebabCase = require('lodash.kebabcase')
 
 const browserDependencies = [
-  'jsdom',
+  'babel-core',
+  'babel-preset-es2015',
+  'jsdom'
 ]
 
 const dependencies = [
