@@ -82,9 +82,6 @@ module.exports = generators.Base.extend({
 
     if (this.options.browser) {
       this.template('index.html', 'index.html')
-      this.template('test/index-test.html', 'test/index-test.html')
-      this.template('test/mocha.css', 'test/mocha.css')
-      this.template('test/mocha.js', 'test/mocha.js')
     }
   },
 
