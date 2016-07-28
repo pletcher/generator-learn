@@ -101,7 +101,7 @@ module.exports = generators.Base.extend({
     if (this.options.browser) {
       this.npmInstall(dependencies.concat(browserDependencies), { saveDev: true })
       if (this.options.react) {
-        this.npmInstall(reactDependencies)
+        this.npmInstall(reactDependencies, { save: true })
       }
     } else {
       this.npmInstall(dependencies, { saveDev: true })
