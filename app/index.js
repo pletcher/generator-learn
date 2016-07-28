@@ -17,6 +17,11 @@ const dependencies = [
   'node-inspector'
 ]
 
+const reactDependencies = [
+  'react',
+  'react-dom'
+]
+
 module.exports = generators.Base.extend({
   constructor: function() {
     generators.Base.apply(this, arguments)
@@ -48,6 +53,13 @@ module.exports = generators.Base.extend({
       name: 'environment',
       message: "Will this project run in the browser, on the server, or in both environments?",
       type: 'list'
+    }, {
+      name: "react",
+      message: "Does this lab use React?",
+      type: 'confirm',
+      'when': function(answers) {
+        return answers.environment !== 'server'
+      }
     }]).then(answers => {
       this.options = answers
       this.options.browser = answers.environment !== 'server'
@@ -88,6 +100,9 @@ module.exports = generators.Base.extend({
   install: function() {
     if (this.options.browser) {
       this.npmInstall(dependencies.concat(browserDependencies), { saveDev: true })
+      if (this.options.react) {
+        this.npmInstall(reactDependencies)
+      }
     } else {
       this.npmInstall(dependencies, { saveDev: true })
     }
